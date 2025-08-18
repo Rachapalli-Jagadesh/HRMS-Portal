@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import axios from "axios";
 import { toast } from 'react-toastify';
-import { useEffect } from "react";
+
 
 import logo from '../../assets/logo.png';
 
@@ -21,7 +21,7 @@ function Register() {
 
     const registerEmployee = async (formValues: Employee) => {
         try {
-            const response = await axios.post('http://localhost:4000/employees', formValues);
+            await axios.post('http://localhost:4000/employees', formValues);
             toast.success('Registered successfully');
             navigate('/');
         } catch(error) {

@@ -4,7 +4,7 @@ import axios from "axios";
 import { toast } from 'react-toastify';
 
 const LeaveApplicationForm = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams,] = useSearchParams();
   const leaveType: any = searchParams.get('type');
   const startDateRef: any = useRef('');
   const endDateRef: any = useRef('');
@@ -49,7 +49,7 @@ const LeaveApplicationForm = () => {
 
     try {
 
-      const response = await axios.post('http://localhost:4000/leaves', requestPayload);
+      await axios.post('http://localhost:4000/leaves', requestPayload);
       toast.success('Applied leave successfully');
       navigate('/user/leave-history');
     } catch(error) {
